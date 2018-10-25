@@ -20,7 +20,7 @@ public class NargilaBarService {
     }
 
     public NargilaBar getNargilaBarById(Long id) {
-        return nargilaBarsRepository.findById(id).orElseThrow(() -> new FileSystemNotFoundException("User not found"));
+        return nargilaBarsRepository.findById(id).orElseThrow(() -> new FileSystemNotFoundException("Barr not found"));
     }
 
 }
