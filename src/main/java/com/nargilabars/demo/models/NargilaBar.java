@@ -7,7 +7,7 @@ import javax.persistence.*;
 public class NargilaBar {
     @Id
     @Column(name = "id")
-    //@GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     Long id;
 
     @Column(name = "name")
@@ -21,6 +21,12 @@ public class NargilaBar {
 
     @Column(name = "number_of_guests")
     Long numberOfGuests;
+
+    @Column(name = "longitude")
+    Double longitude;
+
+    @Column(name = "latitude")
+    Double latitude;
 
     public Long getId() {
         return id;
@@ -60,5 +66,21 @@ public class NargilaBar {
 
     public void setNumberOfGuests(Long numberOfGuests) {
         this.numberOfGuests = numberOfGuests;
+    }
+
+    public Double getLongitude() {
+        return longitude;
+    }
+
+    public void setLongitude(Double longitude) {
+        this.longitude = longitude;
+    }
+
+    public Double getLatitude() {
+        return latitude;
+    }
+
+    public void setLatitude(Double latitude) {
+        this.latitude = latitude;
     }
 }

@@ -5,8 +5,9 @@ import com.nargilabars.demo.repositories.NargilaBarsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
+import java.nio.file.FileSystemNotFoundException;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class NargilaBarService {
@@ -15,13 +16,11 @@ public class NargilaBarService {
     NargilaBarsRepository nargilaBarsRepository;
 
     public List<NargilaBar> getAllNargilaBars(){
-        NargilaBar n = new NargilaBar();
-        n.setId(Long.valueOf(2));
-        //n.setName("Dibek1"); n.setAdress("GGGG"); n.setNumberOfGuests(Long.valueOf(3)); n.setRating(Long.valueOf(10));
-        List<NargilaBar> bars = new ArrayList<>();
-        bars.add(n);
         return (List<NargilaBar>) nargilaBarsRepository.findAll();
-        //return bars;
+    }
+
+    public NargilaBar getNargilaBarById(Long id) {
+        return nargilaBarsRepository.findById(id).orElseThrow(() -> new FileSystemNotFoundException("User not found"));
     }
 
 }
