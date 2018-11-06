@@ -1,14 +1,13 @@
 package com.nargilabars.demo.controllers;
 
+import com.nargilabars.demo.models.NargilaBar;
 import com.nargilabars.demo.models.Rating;
 import com.nargilabars.demo.services.RatingService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.crossstore.ChangeSetPersister;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -26,4 +25,10 @@ public class RatingController {
     public Rating getRating(@PathVariable(name = "id1") Long userId, @PathVariable(name = "id2") Long nargilaBarId ) {
         return ratingService.getRatingByUserIdAndNargilaBarId(userId, nargilaBarId);
     }
+
+    @PostMapping(value="/insertRating")
+    public String createAdmin(@Valid @RequestBody final Rating r) {
+        return ratingService.createRating(r);
+    }
+
 }
