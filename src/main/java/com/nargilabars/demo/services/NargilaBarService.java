@@ -23,4 +23,9 @@ public class NargilaBarService {
         return nargilaBarsRepository.findById(id).orElseThrow(() -> new FileSystemNotFoundException("Barr not found"));
     }
 
+    public String createNargilaBar(NargilaBar nb) {
+            nargilaBarsRepository.save(nb);
+            return "{\"status\": \"" + "Nargila bar is registered" + "\"}";
+    }
+
 }
