@@ -24,7 +24,7 @@ public class RatingService {
     }
 
     public Rating getRatingByUserIdAndNargilaBarId(Long userId, Long nargilaBarId) {
-        return ratingRepository.findByUserIDAndNargilaBarId(userId, nargilaBarId);
+        return ratingRepository.findByUserIdAndNargilaBarId(userId, nargilaBarId);
     }
 
     public String createRating(Rating r) {

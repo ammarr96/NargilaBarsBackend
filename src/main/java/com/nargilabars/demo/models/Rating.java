@@ -11,7 +11,7 @@ public class Rating {
     Long id;
 
     @Column(name = "user_id")
-    Long userID;
+    Long userId;
 
     @Column(name = "nargilabar_id")
     Long nargilaBarId;
@@ -20,11 +20,11 @@ public class Rating {
     Double ocjena;
 
     public Long getUserID() {
-        return userID;
+        return userId;
     }
 
     public void setUserID(Long userID) {
-        this.userID = userID;
+        this.userId = userID;
     }
 
     public Long getNargilaBarId() {

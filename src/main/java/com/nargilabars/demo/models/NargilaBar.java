@@ -22,6 +22,9 @@ public class NargilaBar {
     @Column(name = "number_of_guests")
     Long numberOfGuests;
 
+    @Column(name = "image_url")
+    Long imageUrl;
+
     @Column(name = "longitude")
     Double longitude;
 
@@ -82,5 +85,13 @@ public class NargilaBar {
 
     public void setLatitude(Double latitude) {
         this.latitude = latitude;
+    }
+
+    public Long getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(Long imageUrl) {
+        this.imageUrl = imageUrl;
     }
 }
