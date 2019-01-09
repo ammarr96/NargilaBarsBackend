@@ -23,7 +23,7 @@ public class NargilaBar {
     Long numberOfGuests;
 
     @Column(name = "image_url")
-    Long imageUrl;
+    String imageUrl;
 
     @Column(name = "longitude")
     Double longitude;
@@ -87,11 +87,11 @@ public class NargilaBar {
         this.latitude = latitude;
     }
 
-    public Long getImageUrl() {
+    public String getImageUrl() {
         return imageUrl;
     }
 
-    public void setImageUrl(Long imageUrl) {
+    public void setImageUrl(String imageUrl) {
         this.imageUrl = imageUrl;
     }
 }
