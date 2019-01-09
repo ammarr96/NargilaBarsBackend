@@ -6,8 +6,11 @@ import javax.persistence.*;
 @Table(name = "ratings")
 public class Rating {
     @Id
-    @Column(name = "user_id")
+    @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.AUTO)
+    Long id;
+
+    @Column(name = "user_id")
     Long userID;
 
     @Column(name = "nargilabar_id")
@@ -38,5 +41,13 @@ public class Rating {
 
     public void setOcjena(Double ocjena) {
         this.ocjena = ocjena;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 }
