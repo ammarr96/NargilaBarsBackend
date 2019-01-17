@@ -27,7 +27,7 @@ public class RatingController {
     }
 
     @PostMapping(value="/insertRating")
-    public String createAdmin(@Valid @RequestBody final Rating r) {
+    public String createRating(@Valid @RequestBody final Rating r) {
         return ratingService.createRating(r);
     }
 
