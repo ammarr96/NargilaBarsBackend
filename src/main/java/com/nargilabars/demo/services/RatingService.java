@@ -31,7 +31,9 @@ public class RatingService {
         NargilaBar nb = nargilaBarsRepository.findById(r.getNargilaBarId()).orElseThrow(() -> new FileSystemNotFoundException("Not found"));
         Double newRating = (r.getOcjena() + nb.getRating()*nb.getNumberOfGuests())/(nb.getNumberOfGuests()+1);
         nb.setRating(newRating);
-        nb.setNumberOfGuests(nb.getNumberOfGuests()+1);
+        if (ratingRepository.findById(r.getId()) != null) {
+            nb.setNumberOfGuests(nb.getNumberOfGuests()+1);
+        }
         nargilaBarsRepository.save(nb);
         ratingRepository.save(r);
         return "{\"status\": \"" + "Rating is registered" + "\"}";
