@@ -8,5 +8,6 @@ import org.springframework.stereotype.Repository;
 public interface RatingRepository extends PagingAndSortingRepository<Rating, Long> {
 
     Rating findByUserIdAndNargilaBarId(Long userId, Long nargilaBarId);
+    Rating findById(int id);
 
 }
