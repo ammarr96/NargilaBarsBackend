@@ -30,7 +30,7 @@ public class RatingService {
     public String createRating(Rating r) {
         NargilaBar nb = nargilaBarsRepository.findById(r.getNargilaBarId()).orElseThrow(() -> new FileSystemNotFoundException("Not found"));
         Rating old = ratingRepository.findById(r.getId()).orElse(null);
-        if (old == null) {
+        if (r.getId() == 0) {
             nb.setNumberOfGuests(nb.getNumberOfGuests()+1);
         }
 
