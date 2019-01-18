@@ -29,11 +29,8 @@ public class RatingService {
 
     public String createRating(Rating r) {
         NargilaBar nb = nargilaBarsRepository.findById(r.getNargilaBarId()).orElseThrow(() -> new FileSystemNotFoundException("Not found"));
-
-        try {
-            Rating old = ratingRepository.findById(r.getId()).orElseThrow(() -> new FileSystemNotFoundException("Not found"));
-        }
-        catch (FileSystemNotFoundException e) {
+        Rating old = ratingRepository.findById(r.getId()).orElse(null);
+        if (old == null) {
             nb.setNumberOfGuests(nb.getNumberOfGuests()+1);
         }
 
