@@ -29,11 +29,13 @@ public class RatingService {
 
     public String createRating(Rating r) {
         NargilaBar nb = nargilaBarsRepository.findById(r.getNargilaBarId()).orElseThrow(() -> new FileSystemNotFoundException("Not found"));
-        Double newRating = (r.getOcjena() + nb.getRating()*nb.getNumberOfGuests())/(nb.getNumberOfGuests()+1);
-        nb.setRating(newRating);
-        if (ratingRepository.findById(r.getId()) != null) {
+        Rating old = ratingRepository.findById(r.getId()).orElseThrow(() -> new FileSystemNotFoundException("Not found"));
+        if (old != null) {
             nb.setNumberOfGuests(nb.getNumberOfGuests()+1);
         }
+
+        Double newRating = (r.getOcjena() + nb.getRating()*nb.getNumberOfGuests())/(nb.getNumberOfGuests());
+        nb.setRating(newRating);
         nargilaBarsRepository.save(nb);
         ratingRepository.save(r);
         return "{\"status\": \"" + "Rating is registered" + "\"}";
