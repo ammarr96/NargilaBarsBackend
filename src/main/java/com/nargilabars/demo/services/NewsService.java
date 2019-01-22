@@ -12,7 +12,7 @@ public class NewsService {
     @Autowired
     NewsRepository newsRepository;
 
-    public List<News> getAllUsers(){
+    public List<News> getAllNews(){
         return (List<News>) newsRepository.findAll();
     }
 }
